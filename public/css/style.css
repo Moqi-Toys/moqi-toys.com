@@ -1,0 +1,58 @@
+/* 粉色主题变量 */
+:root {
+  --pink-50: #fdf2f8;
+  --pink-100: #fce7f3;
+  --pink-500: #ec4899;
+  --pink-600: #db2777; 
+  --pink-900: #831843;
+}
+
+/* 基础重置 */
+body {
+  background-color: var(--pink-50);
+  color: var(--pink-900);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 标题样式 */
+h1, h2, h3 {
+  color: var(--pink-600);
+  font-weight: 700;
+}
+
+/* 主按钮样式 */
+.btn-primary {
+  background-color: var(--pink-500);
+  border-color: var(--pink-600);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--pink-600);
+  border-color: var(--pink-900);
+}
+
+/* 辅助类 */
+.bg-light {
+  background-color: var(--pink-100) !important;
+}
+
+.text-muted {
+  color: var(--pink-500) !important;
+}
+
+/* 链接样式 */
+a {
+  color: var(--pink-600);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--pink-900);
+  text-decoration: underline;
+}
+
+/* 卡片阴影 */
+.card {
+  box-shadow: 0 2px 8px rgba(219, 39, 119, 0.1);
+}
