@@ -56,3 +56,15 @@ a:hover {
 .card {
   box-shadow: 0 2px 8px rgba(219, 39, 119, 0.1);
 }
+
+@media (max-width: 768px) {
+  #heroCarousel .carousel-item img {
+      height: 70vh !important;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+      width: 15%;
+      height: 20%;
+      top: 40%;
+  }
+}

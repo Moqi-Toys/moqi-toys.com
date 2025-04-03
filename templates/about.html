@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="about-section py-5">
+  <div class="container">
+    <div class="row g-5">
+      <!-- 文字内容 -->
+      <div class="col-lg-6">
+        <h2 class="display-5 mb-4 text-pink-600">{{ section.extra.hero_title }}</h2>
+        <p class="lead mb-4">{{ section.extra.about_content }}</p>
+        
+        <div class="mission-card bg-pink-50 p-4 rounded-3 mb-5">
+          <h3 class="h4 mb-3">Our Mission</h3>
+          <p class="mb-0">{{ section.extra.mission_statement }}</p>
+        </div>
+      </div>
+
+      <!-- 图片展示 -->
+      <div class="col-lg-6">
+        <img src="/images/moqi-hero.jpg" alt="About Moqi Toys" 
+             class="img-fluid rounded-3 shadow-lg" loading="lazy">
+      </div>
+    </div>
+
+    <!-- 时间线组件 -->
+    <div class="timeline-section mt-5 pt-5">
+      <h3 class="h2 text-center mb-5">{{ section.extra.timeline_title }}</h3>
+      <div class="timeline">
+        <div class="timeline-progress"></div>
+        
+        <!-- 时间线条目示例 -->
+        <div class="timeline-item">
+          <div class="timeline-date">1997</div>
+          <div class="timeline-content">
+            <h4>Company Founded</h4>
+            <p>Established in Dalian with 5 team members</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2005</div>
+          <div class="timeline-content">
+            <h4>First Export</h4>
+            <p>Started international distribution to 10+ countries</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2014</div>
+          <div class="timeline-content">
+            <h4>Expend</h4>
+            <p>Distributed to 50+ countries</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2025</div>
+          <div class="timeline-content">
+            <h4>Continue growth</h4>
+            <p>Setup the first office in EU, Norway</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-progress {
+  position: absolute;
+  left: 50%;
+  width: 4px;
+  height: 100%;
+  background: #f3e8f1;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.timeline-date {
+  flex: 0 0 120px;
+  text-align: right;
+  padding-right: 30px;
+  font-weight: 600;
+  color: #9d6b89;
+}
+
+.timeline-content {
+  flex: 1;
+  padding-left: 30px;
+  position: relative;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e83e8c;
+  border: 3px solid white;
+}
+</style>
+{% endblock %}
