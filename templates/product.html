@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="product-container bg-gradient-to-b from-pink-50 to-pink-100 p-4 p-md-8">
+  <div class="container">
+    <!-- 优化后的面包屑导航 -->
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/" class="text-pink-600 hover:text-pink-800 transition-colors">Home</a>
+        </li>
+        <li class="breadcrumb-item"><a href="/products"
+            class="text-pink-600 hover:text-pink-800 transition-colors">Products</a></li>
+        <li class="breadcrumb-item active text-pink-700" aria-current="page">{{ page.title }}</li>
+      </ol>
+    </nav>
+
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div id="mainImage" class="rounded-lg shadow-xl overflow-hidden">
+          <img src="{{ page.extra.main_image }}" class="w-100 transition-opacity"
+            style="height: 500px; object-fit: cover" alt="Main Product Image">
+        </div>
+
+        <div class="row g-3 mb-3">
+          {% for img in page.extra.images %}
+          <div class="col-3">
+            <img src="{{ get_url(path=img) }}" class="img-thumbnail cursor-pointer hover:shadow-lg transition-shadow"
+              onclick="switchMainImage(this)" style="height: 80px; object-fit: cover" alt="Thumbnail {{ loop.index }}">
+          </div>
+          {% endfor %}
+        </div>    
+      </div>
+
+      <!-- 优化后的产品详情 -->
+      <div class="col-md-6">
+        <div class="product-details d-flex flex-column h-100 gap-4">
+          <h1 class="display-5 fw-bold text-pink-700 mb-3">{{ page.title }}</h1>
+
+          <!-- 新增产品标签 -->
+          <div class="badge-container mb-3">
+            <span class="badge bg-pink-100 text-pink-700 me-2">★ Best Seller</span>
+            <span class="badge bg-pink-100 text-pink-700">🆕 New Arrival</span>
+          </div>
+
+          <!-- 新增规格参数 -->
+          <div class="specs bg-white p-4 rounded-lg shadow-sm mb-4">
+            <h3 class="fs-5 fw-semibold text-pink-600 mb-3">Product Specs</h3>
+            <ul class="list-unstyled">
+              {% for spec in page.extra.specs %}
+              <li class="d-flex align-items-center mb-2">
+                <i class="bi bi-check2-circle text-pink-500 me-2"></i>
+                <span>{{ spec }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <!-- 价格展示模块代码... -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* 新增动画效果 */
+  .shadow-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .shadow-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(246, 130, 140, 0.1);
+  }
+
+  /* 优化按钮悬停效果 */
+  .btn-primary {
+    background: #f6828c;
+    border-color: #f6828c;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: #e46872;
+    border-color: #e46872;
+  }
+</style>
+
+<script>
+  // 新增图片切换功能
+  function switchMainImage(thumbnail) {
+    const mainImg = document.querySelector('#mainImage img');
+    mainImg.style.opacity = 0;
+    setTimeout(() => {
+      mainImg.src = thumbnail.src;
+      mainImg.style.opacity = 1;
+    }, 300);
+  }
+</script>
+{% endblock %}
